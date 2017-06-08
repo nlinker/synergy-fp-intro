@@ -15,12 +15,12 @@ public class Lesson3 {
     public static final Function2<Function<Integer, Integer>, List<Integer>, List<Integer>>
         map = (f, xs) -> {
             final int n = xs.size();
-            final List<Integer> result = new ArrayList<>(n);
+            final List<Integer> result = new ArrayList<>( n );
             for (Integer x : xs) {
                 result.add(f.apply(x));
             }
             return result;
-            // throw new NoSuchMethodError("mapLoop");
+            //throw new NoSuchMethodError("mapLoop");
         };
 
     public static final Function<List<Integer>, List<Integer>>

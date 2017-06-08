@@ -39,5 +39,4 @@ public class Lesson2 {
     public static final Function2<Function<String, String>, Integer, Function<String, String>>
         replicateConcat = (func, num) ->
             str -> String.join("", Collections.nCopies(num, func.apply(str)));
-
 }
