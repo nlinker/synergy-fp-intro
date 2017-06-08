@@ -27,17 +27,17 @@ public class Lesson2 {
      *
      *                            /+++ operation ++++\  /+num+\  /++++ result +++++\ */
     public static final Function2<Function<Void, Void>, Integer, Function<Void, Void>>
-        repeat = (operation, num) ->
-            v -> {
-                throw new NoSuchMethodError("repeat");
-            };
+        repeat = (operation, num) -> v -> {
+            for (int i = 0; i < num; i++)
+                operation.apply(v);
+            return null;
+        };
 
     /**
      * TODO Implement the same but for concatenation
      */
     public static final Function2<Function<String, String>, Integer, Function<String, String>>
         replicateConcat = (func, num) ->
-            str -> {
-                throw new NoSuchMethodError("replicateConcat");
-            };
+            str -> String.join("", Collections.nCopies(num, func.apply(str)));
+
 }
