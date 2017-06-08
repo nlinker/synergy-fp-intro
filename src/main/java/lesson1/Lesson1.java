@@ -2,7 +2,6 @@ package lesson1;
 
 import java.util.Collections;
 import java.util.function.Function;
-import java.util.stream.Stream;
 import function.Function2;
 
 /**
