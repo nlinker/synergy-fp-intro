@@ -16,8 +16,11 @@ public class Lesson3 {
         map = (f, xs) -> {
             final int n = xs.size();
             final List<Integer> result = new ArrayList<>(n);
-            // TODO
-            throw new NoSuchMethodError("mapLoop");
+            for (Integer x : xs) {
+                result.add(f.apply(x));
+            }
+            return result;
+            // throw new NoSuchMethodError("mapLoop");
         };
 
     public static final Function<List<Integer>, List<Integer>>
