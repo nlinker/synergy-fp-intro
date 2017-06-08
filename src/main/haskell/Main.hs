@@ -29,18 +29,10 @@ map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (x:xs) = f x : map f xs
 
-filter :: (a -> Bool) -> [a] -> [a]
-filter _ [] = []
-filter f (x:xs) = if f x then x : filter f xs
-
-
-doubleIt :: Integer -> Integer
-doubleIt = (* 2)
-
 doubleAll :: [Integer] -> [Integer]
 doubleAll xs = map (* 2) xs
 -- eta reduction:
--- doubleAll = map doubleIt
+-- doubleAll = map (* 2)
 
 -- Lesson 4
 
