@@ -20,8 +20,12 @@ public class Lesson4 {
         filter = (f, xs) -> {
             final int n = xs.size();
             final List<String> result = new ArrayList<>(n);
-            // TODO
-            throw new NoSuchMethodError("filter");
+            for (String x : xs) {
+                if (f.apply(x)) {
+                    result.add(x);
+                }
+            }
+            return result;
         };
 
     /**

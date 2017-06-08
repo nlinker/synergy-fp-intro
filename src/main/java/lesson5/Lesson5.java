@@ -29,8 +29,11 @@ public class Lesson5 {
             final int n = xs.size();
             final List<T> tail = xs.subList(1, n);
             final List<U> result = new ArrayList<>(n);
-            // TODO
-            throw new NoSuchMethodError("mapRecursive");
+            result.add(mappedHead);
+            result.addAll(mappedTail);
+            return result;
+            // ???
+            // throw new NoSuchMethodError("mapRecursive");
         }
     }
 
@@ -47,8 +50,13 @@ public class Lesson5 {
             final List<T> tail = xs.subList(1, n);
             final T head = xs.get(0);
             final List<T> result = new ArrayList<>(n);
+            if (filtered) {
+                result.add(head);
+            }
+            result.addAll(filteredTail);
+            return result;
             // TODO
-            throw new NoSuchMethodError("filterRecursive");
+            // throw new NoSuchMethodError("filterRecursive");
         }
     }
 }
