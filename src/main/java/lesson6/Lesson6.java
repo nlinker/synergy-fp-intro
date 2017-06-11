@@ -10,14 +10,28 @@ public class Lesson6 {
         else return n * Lesson6.factorialSelfRef.apply(n - 1L);
     };
 
+
     /**
-     * TODO: Define function factorial so that its definition DOES NOT refer to
-     * Lesson6.factorial.
+     * This definition is related with very interesting
+     * topic on combinators and using combinators as building
+     * blocks for defining computations.
      *
-     * HINT: Employ the data type Self below
+     * One of definition is below.
+     * Another definitions look like:
+     * <a href="https://gist.github.com/timyates/11304666">more compact</a>
+     * <a href="https://gist.github.com/aruld/3965968">more general</a>
+     *
+     * And all the topic is related to Y-combinator
+     * (http://mvanier.livejournal.com/2897.html)
      */
     public static final Function<Long, Long> factorial = n -> {
-        throw new NoSuchMethodError("factorial");
+        final Self<Long> trampoline = new Self<>((cont, m) -> {
+            if (m == 0L)
+                return 1L;
+            else
+                return m * cont.func.apply(cont, m - 1);
+        });
+        return trampoline.func.apply(trampoline, n);
     };
 
     public static class Self<T> {
